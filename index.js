@@ -2,7 +2,11 @@ const bookUrl = "http://localhost:3000/api/v1/books";
 
 document.addEventListener("DOMContentLoaded", () => {
   // console.log('Dom is loaded')
-  getBooks();
+    getBooks();
+    
+    const newBookForm = document.querySelector("#book-form")
+
+    newBookForm.addEventListener("submit", (e) => createFormHandler(e))
 });
 
 function getBooks() {
@@ -24,4 +28,19 @@ function getBooks() {
         document.querySelector("#notes-list").innerHTML += bookMarkup;
       });
     });
+}
+
+function createFormHandler(e) {
+    e.preventDefault()
+    
+    const titleInput = document.querySelector('#input-title').value 
+    const authorInput = document.querySelector('#input-author').value
+    const urlInput = document.querySelector('#input-url').value 
+    const descriptionInput = document.querySelector('#input-description').value
+    const genreId = parseInt(document.querySelector('#genres').value)
+    postFetch(titleInput, authorInput, urlInput, descriptionInput, genreId)
+}
+
+function postFetch(title, author, image_url, description, genre_id) {
+    console.log(title, author, image_url, description, genre_id);
 }

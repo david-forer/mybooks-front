@@ -7,3 +7,7 @@ h1 {
     list-style-type: none;
     margin-top: 4em;
 }
+
+.center {
+    margin: 20px;
+}

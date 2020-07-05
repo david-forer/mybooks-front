@@ -15,12 +15,12 @@
 
         <h1>My Book Library</h1>
 
-    <div id="notes-list"></div>
+   
+    <div class="form-container d-flex justify-content-around">
 
-    <div class="form-container">
-
-        <form id="book-form" style="">
-            <h3>Add a Book to Your Library!</h3>
+<form id="book-form" class="border-light">
+            <h3 class="card-header info-color text-center">Add a Book to Your Library!</h3>
+            <br><br>
 
             <input id='input-title' type="text" name="title" value="" placeholder="Enter your Book Title..." class="input-text">
             <br><br>
@@ -50,7 +50,8 @@
         </form>
 
     </div>
+    <div id="books-list" class="flex-container"></div>
 </div>
-    <script src="index.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
 </body>
 </html>

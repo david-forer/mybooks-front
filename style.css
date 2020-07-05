@@ -27,6 +27,7 @@ form {
 
 .data-id {
     max-width: 250px;
+     /* min-width: 225px; */
 }
 
 .p-desc {
@@ -35,8 +36,10 @@ form {
 }
 
 .card {
-    max-width: 30em;
+    /* max-width: 25em; */
+    width: 25em;
     align-items: center;
     margin: 2em;
     padding: .4em;
+    /* min-width: 425px; */
 }

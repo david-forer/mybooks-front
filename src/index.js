@@ -6,7 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const newBookForm = document.querySelector("#book-form")
 
-    newBookForm.addEventListener("submit", (e) => createFormHandler(e))
+  newBookForm.addEventListener("submit", (e) => createFormHandler(e))
+  
+  // getting buttons to work
+
+  const deleteBookFromCard = document.querySelector('#books-list')
+  
+  deleteBookFromCard.addEventListener('click', (e) => {
+    console.log(e.target)
+  });
+
 });
 
 function getBooks() {
@@ -14,21 +23,24 @@ function getBooks() {
     .then((response) => response.json())
     .then((books) => {
       books.data.forEach((book) => {
-        const bookMarkup = `
+          render(book)
+      });
+    });
+}
+
+function render(book) {
+          const bookMarkup = `
             <div class="card" data-id=${book.id}>
-            <li>
-                <h3>${book.attributes.title}</h3>
+                    <h3>${book.attributes.title}</h3>
                     <p>${book.attributes.author}</p>
                     <p class="p-desc">${book.attributes.description}</p>                      
                     <p><img src=${book.attributes.image_url}></p>
                     <p>${book.attributes.genre.name}</p>
-            </li>
-            <div class="btns">
-            <button data-id=${book.id}>edit</button> <button data-id=${book.id}>delete</button></div>
+            
+            <div class="btns" id="2-buttons">
+            <button id ="edit-btn" data-id=${book.id}>edit</button> <button id="delete-btn" data-id=${book.id}>delete</button></div>
             </div><br><br>`;
-        document.querySelector("#books-list").innerHTML += bookMarkup;
-      });
-    });
+          document.querySelector("#books-list").innerHTML += bookMarkup;
 }
 
 function createFormHandler(e) {
@@ -55,20 +67,9 @@ function postFetch(title, author, image_url, description, genre_id) {
        .then(response => response.json())
        .then(book => {
            console.log(book);
-            const bookData = book.data
-             const bookMarkup = `
-                <div data-id=${book.id}>
-                
-                    <h3>${bookData.attributes.title}</h3>
-                    <p>${bookData.attributes.author}</p>
-                    <p>${bookData.attributes.description}</p>                      
-                    <p>${bookData.attributes.image_url}</p>
-                    <p>${bookData.attributes.genre.name}</p>
-                
-            <button data-id=${bookData.id}>edit</button> <button data-id=${bookData.id}>delete</button>
-            </div>
-            <br><br>`;
-           
-         document.querySelector('#books-list').innerHTML += bookMarkup;
+         const bookData = book.data
+         
+         render(bookData)
+
        })
 }

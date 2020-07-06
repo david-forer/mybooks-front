@@ -61,8 +61,6 @@ function postFetch(title, author, image_url, description, genre_id) {
          let newBook = new Book(bookData, bookData.attributes)
 
          document.querySelector('#books-list').innerHTML += newBook.renderBookCard();
-         
-        //  render(bookData)
-
+       
        })
 }

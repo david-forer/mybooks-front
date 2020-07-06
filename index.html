@@ -3,55 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Bootstrap CDN for use -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>My Books Library</title>
 </head>
 <body>
     
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-6">My Book Library</h1>
+        <p class="lead">The Easiest way to keep track of all your books at home!!</p>
+    </div>
+</div>
+<div class="center">
 
-    <div class="center">
 
-        <h1>My Book Library</h1>
+    <div class="container">   
+        <div class="row align-items-center">
+            <div class="col-md-6"><h3>Search Your Current Books...</h3>
+            <p>Pick a Category and to see what books you have</p>
+            <!-- Search form -->
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-md-6">
+                <div class="form-container d-flex justify-content-around">
 
-   
-    <div class="form-container d-flex justify-content-around">
+                    <form id="book-form" class="border-light">
+                        <h3 class="card-header info-color text-center">Add a Book to Your Library!</h3>
+                        <br><br>
 
-<form id="book-form" class="border-light">
-            <h3 class="card-header info-color text-center">Add a Book to Your Library!</h3>
-            <br><br>
+                        <input id='input-title' type="text" name="title" value="" placeholder="Enter your Book Title..." class="input-text">
+                        <br><br>
+                        <input id='input-author' type="text" name="author" value="" placeholder="Enter Author..." class="input-text">
+                        <br><br>
 
-            <input id='input-title' type="text" name="title" value="" placeholder="Enter your Book Title..." class="input-text">
-            <br><br>
-            <input id='input-author' type="text" name="author" value="" placeholder="Enter Author..." class="input-text">
-            <br><br>
+                        <input id='input-url' type="text" name="image" value="" placeholder="Enter a Book image URL..." class="input-text">
+                        <br><br>
+                        <textarea id='input-description' name="description" rows="4" cols="60" value=""
+                            placeholder="Enter a Book description..."></textarea>
+                        <br><br>
+                        
+                        <select id="genres" name="genres" class="custom-select">
+                            <option value="1">Romance</option>
+                            <option value="2">Mystery</option>
+                            <option value="3">Horror</option>
+                            <option value="4">Thriller</option>
+                            <option value="5">Fiction</option>
+                            <option value="6">Cooking</option>
+                            <option value="7">Travel</option>
+                            <option value="8">History</option>
+                            <!-- <option value="9">Horror</option> -->
+                        </select>
+                        <br><br>
 
-            <input id='input-url' type="text" name="image" value="" placeholder="Enter a Book image URL..." class="input-text">
-            <br><br>
-            <textarea id='input-description' name="description" rows="4" cols="60" value=""
-                placeholder="Enter a Book description..."></textarea>
-            <br><br>
-            
-            <select id="genres" name="genres" class="custom-select">
-                <option value="1">Romance</option>
-                <option value="2">Mystery</option>
-                <option value="3">Horror</option>
-                <option value="4">Thriller</option>
-                <option value="5">Fiction</option>
-                <option value="6">Cooking</option>
-                <option value="7">Travel</option>
-                <option value="8">History</option>
-                <!-- <option value="9">Horror</option> -->
-            </select>
-            <br><br>
+                        <input id='create-button' type="submit" name="submit" value="Add a New Book" class="submit btn btn-primary">
+                    </form>
 
-            <input id='create-button' type="submit" name="submit" value="Add a New Book" class="submit btn btn-primary">
-        </form>
-
+                </div>
+            </div>
+        </div>
     </div>
     <div id="books-list" class="flex-container"></div>
 </div>
+    <!-- Added my JS Files in the lower body which is my personal preference -->
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/book.js"></script>
 </body>

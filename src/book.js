@@ -21,7 +21,7 @@ class Book {
                     <p>${this.genre.name}</p>
             
             <div class="btns" id="2-buttons">
-            <button id ="edit-btn" data-id=${this.id}>edit</button> <button id="delete-btn" data-id=${this.id}>delete</button></div>
+            <button class="btn btn-primary"id ="edit-btn" data-id=${this.id}>edit</button> <button class="btn btn-danger" id="delete-btn" data-id=${this.id}>delete</button></div>
             </div><br><br>`;
         
 }

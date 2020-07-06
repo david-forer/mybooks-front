@@ -22,25 +22,14 @@ function getBooks() {
   fetch(bookUrl)
     .then((response) => response.json())
     .then((books) => {
-      books.data.forEach((book) => {
-          render(book)
+      books.data.forEach(book => {
+
+let newBook = new Book(book, book.attributes)
+
+        document.querySelector("#books-list").innerHTML += newBook.renderBookCard();
+        
       });
     });
-}
-
-function render(book) {
-          const bookMarkup = `
-            <div class="card" data-id=${book.id}>
-                    <h3>${book.attributes.title}</h3>
-                    <p>${book.attributes.author}</p>
-                    <p class="p-desc">${book.attributes.description}</p>                      
-                    <p><img src=${book.attributes.image_url}></p>
-                    <p>${book.attributes.genre.name}</p>
-            
-            <div class="btns" id="2-buttons">
-            <button id ="edit-btn" data-id=${book.id}>edit</button> <button id="delete-btn" data-id=${book.id}>delete</button></div>
-            </div><br><br>`;
-          document.querySelector("#books-list").innerHTML += bookMarkup;
 }
 
 function createFormHandler(e) {
@@ -68,8 +57,12 @@ function postFetch(title, author, image_url, description, genre_id) {
        .then(book => {
            console.log(book);
          const bookData = book.data
+
+         let newBook = new Book(bookData, bookData.attributes)
+
+         document.querySelector('#books-list').innerHTML += newBook.renderBookCard();
          
-         render(bookData)
+        //  render(bookData)
 
        })
 }

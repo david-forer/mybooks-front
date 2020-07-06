@@ -22,7 +22,10 @@ function getBooks() {
   fetch(bookUrl)
     .then((response) => response.json())
     .then((books) => {
-      books.data.forEach((book) => {
+      books.data.forEach(book => {
+
+let newBook = new Book(book, book.attributes)
+
           render(book)
       });
     });

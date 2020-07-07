@@ -8,14 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   newBookForm.addEventListener("submit", (e) => createFormHandler(e))
   
-  // getting buttons to work
+  // getting delete button to work
 
-  const deleteBookFromCard = document.querySelector('#books-list')
+  // const deleteBookFromCard = document.querySelector('#books-list')
   
-  deleteBookFromCard.addEventListener('click', (e) => {
-    console.log(e.target)
-  });
+  // deleteBookFromCard.addEventListener('click', (e) => {
+  //   console.log(e.target)
 
+  //getting the edit button to work
+  const app = new App();
+  app.attachEventListeners();
+
+  
 });
 
 function getBooks() {

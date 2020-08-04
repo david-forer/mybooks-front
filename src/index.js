@@ -26,14 +26,17 @@ function getBooks() {
   fetch(bookUrl)
     .then((response) => response.json())
     .then((books) => {
-      books.data.forEach(book => {
+      books.data.sort(function (a, b) {
 
-let newBook = new Book(book, book.attributes)
+        if (a.attributes.title > b.attributes.title) return 1;
+        if (a.attributes.title < b.attributes.title) return -1;
+      }).forEach(book => {
+      let newBook = new Book(book, book.attributes)
 
         document.querySelector("#books-list").innerHTML += newBook.renderBookCard();
         
       });
-    });
+      });
 }
 
 function createFormHandler(e) {

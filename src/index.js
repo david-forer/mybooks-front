@@ -27,9 +27,10 @@ function getBooks() {
     .then((response) => response.json())
     .then((books) => {
       books.data.sort(function (a, b) {
-
-        if (a.attributes.title > b.attributes.title) return 1;
-        if (a.attributes.title < b.attributes.title) return -1;
+        var a1 = a.attributes.title.toLowerCase();
+        var b1 = b.attributes.title.toLowerCase();
+        if (a1 > b1) return 1;
+        if (a1 < b1) return -1;
       }).forEach(book => {
       let newBook = new Book(book, book.attributes)
 
